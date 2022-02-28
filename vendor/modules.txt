@@ -1,3 +1,0 @@
-# github.com/mibk/shellexec v0.1.0
-## explicit
-github.com/mibk/shellexec
