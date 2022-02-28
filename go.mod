@@ -1,4 +1,4 @@
-module github.com/henomis/simple-go-gnuplot/v1
+module github.com/henomis/simple-go-gnuplot
 
 go 1.17
 
