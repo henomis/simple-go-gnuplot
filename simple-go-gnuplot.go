@@ -92,8 +92,6 @@ func (sg *simpleGnuplot) buildGnuplotCommand() string {
 
 	gnuplotCommand = fmt.Sprintf("%s %s", gnuplotCommand, sg.plotFilePath)
 
-	fmt.Println(gnuplotCommand)
-
 	return gnuplotCommand
 
 }
