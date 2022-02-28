@@ -1,6 +1,8 @@
 package simplegognuplot
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestSimpleGnuplot_buildGnuplotCommand(t *testing.T) {
 	type fields struct {
@@ -28,11 +30,10 @@ func TestSimpleGnuplot_buildGnuplotCommand(t *testing.T) {
 				gnuplotExecutable: "/bin/gnuplot",
 				environmentVariables: map[string]interface{}{
 					"key1": "value1",
-					"key2": 2,
 				},
 				plotFilePath: "/tmp/plot01.plot",
 			},
-			want: "/bin/gnuplot -e \"key1='value1'; key2='2'\" /tmp/plot01.plot",
+			want: "/bin/gnuplot -e \"key1='value1'\" /tmp/plot01.plot",
 		},
 	}
 	for _, tt := range tests {
