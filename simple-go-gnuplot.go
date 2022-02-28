@@ -8,34 +8,34 @@ import (
 	"github.com/mibk/shellexec"
 )
 
-type simpleGnuplot struct {
+type SimpleGnuplot struct {
 	gnuplotExecutablePath string
 	environmentVariables  map[string]interface{}
 	plotFilePath          string
 }
 
-func New(gnuplotExecutablePath string) *simpleGnuplot {
+func New(gnuplotExecutablePath string) *SimpleGnuplot {
 
-	return &simpleGnuplot{
+	return &SimpleGnuplot{
 		gnuplotExecutablePath: gnuplotExecutablePath,
 		environmentVariables:  make(map[string]interface{}),
 	}
 
 }
 
-func (sg *simpleGnuplot) AddEnv(key string, value interface{}) {
+func (sg *SimpleGnuplot) AddEnv(key string, value interface{}) {
 	sg.environmentVariables[key] = value
 }
 
-func (sg *simpleGnuplot) DeleteEnv() {
+func (sg *SimpleGnuplot) DeleteEnv() {
 	sg.environmentVariables = make(map[string]interface{})
 }
 
-func (sg *simpleGnuplot) SetPlotFilePath(plotFilePath string) {
+func (sg *SimpleGnuplot) SetPlotFilePath(plotFilePath string) {
 	sg.plotFilePath = plotFilePath
 }
 
-func (sg *simpleGnuplot) Exec() error {
+func (sg *SimpleGnuplot) Exec() error {
 
 	err := sg.validate()
 	if err != nil {
@@ -62,7 +62,7 @@ func (sg *simpleGnuplot) Exec() error {
 
 // SUPPORT METHODS
 
-func (sg *simpleGnuplot) validate() error {
+func (sg *SimpleGnuplot) validate() error {
 
 	fileInfo, err := os.Stat(sg.gnuplotExecutablePath)
 	if err != nil {
@@ -82,7 +82,7 @@ func (sg *simpleGnuplot) validate() error {
 
 }
 
-func (sg *simpleGnuplot) buildGnuplotCommand() string {
+func (sg *SimpleGnuplot) buildGnuplotCommand() string {
 
 	gnuplotCommand := sg.gnuplotExecutablePath
 
@@ -96,7 +96,7 @@ func (sg *simpleGnuplot) buildGnuplotCommand() string {
 
 }
 
-func (sg *simpleGnuplot) buildGnuplotEnvironmentList() string {
+func (sg *SimpleGnuplot) buildGnuplotEnvironmentList() string {
 
 	gnuplotEnvironmentList := ""
 

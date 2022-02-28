@@ -38,7 +38,7 @@ func TestSimpleGnuplot_buildGnuplotCommand(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			sg := &simpleGnuplot{
+			sg := &SimpleGnuplot{
 				gnuplotExecutablePath: tt.fields.gnuplotExecutable,
 				environmentVariables:  tt.fields.environmentVariables,
 				plotFilePath:          tt.fields.plotFilePath,
